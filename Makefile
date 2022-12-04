@@ -43,8 +43,8 @@ install:
 	install -m644 dracut/*.conf ${DESTDIR}/${PREFIX}/lib/dracut/dracut.conf.d
 	ln -sf /run/runit/reboot ${DESTDIR}/etc/runit/
 	ln -sf /run/runit/stopit ${DESTDIR}/etc/runit/
-	cp -R --no-dereference --preserve=mode,links -v runsvdir/* ${DESTDIR}/etc/runit/runsvdir/
-	cp -R --no-dereference --preserve=mode,links -v services/* ${DESTDIR}/etc/sv/
+	cp -R -p -v runsvdir/* ${DESTDIR}/etc/runit/runsvdir/
+	cp -R -p -v services/* ${DESTDIR}/etc/sv/
 
 clean:
 	-rm -f halt pause vlogger
